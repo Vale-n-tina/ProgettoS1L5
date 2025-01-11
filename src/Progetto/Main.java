@@ -1,5 +1,6 @@
 package Progetto;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -48,7 +49,7 @@ public class Main {
 					System.out.println("Orrore in corso");
 			}
 		}
-
+		System.out.println("ecco i tuoi oggetti creati" + Arrays.toString(elementiMultimediali));
 		int sceltaVoce;
 		do {
 			System.out.println("che vuoi fare?");
@@ -84,39 +85,35 @@ public class Main {
 						System.out.println("il volume attuale è " + video.getVolume());
 					} else {
 						System.out.println("Emily, Hai scelto un immagine");
-					}
-				}else if (sceltaVoce == 7) {
+					}}
+				} else if (sceltaVoce == 7) {
 					System.out.println("scegli l'elemento di cui vuoi modificare la luminosità tra 1 e 5");
 					int elementoModificareL = scanner.nextInt();
 					if (elementoModificareL >= 1 && elementoModificareL <= 5) {
 						ElementoMultimediale elemento = elementiMultimediali[elementoModificareL - 1];
-						if (elemento instanceof Audio) {
-							Video video = (Video) elemento;
-							System.out.println("la luminosità attuale è: " + video.getVolume());
-							System.out.println("inserisci la nuova luminosità");
-							int nuovaL = scanner.nextInt();
-						   video.setVolume(nuovaL);
-							System.out.println("la luminosità auttuale è  " + video.getVolume());
-						} else if (elemento instanceof Immagine) {
+
+						if (elemento instanceof Immagine) {
 							Immagine immagine = (Immagine) elemento;
-							System.out.println("il volume attuale è: " + immagine.getVolume());
-							System.out.println("inserisci il nuovo volume");
+							System.out.println("la luminosità attuale è: " + immagine.getLuminosita());
+							System.out.println("inserisci la nuova luminosità");
 							int nuovoV = scanner.nextInt();
-							immagine.setVolume(nuovoV);
-							System.out.println("la luminosità attuale è  " + immagine.getVolume());
+							immagine.setLuminosita(nuovoV);
+							System.out.println("la luminosità attuale è  " + immagine.getLuminosita());
 						} else {
-							System.out.println("Emily, Hai scelto un immagine");
+							System.out.println("Emily, Hai scelto un audio");
 						}
 					}
-			} else if (sceltaVoce == 8) {
-				System.out.println("Ecco tutti gli elementi che hai creato");
-				for(int i=0; i<elementiMultimediali.length; i++){
-					if(elementiMultimediali[i]!= null){
-						System.out.println(elementiMultimediali[i]);
+				} else if (sceltaVoce == 8) {
+					System.out.println("Ecco tutti gli elementi che hai creato");
+					for (int i = 0; i < elementiMultimediali.length; i++) {
+						if (elementiMultimediali[i] != null) {
+							System.out.println(elementiMultimediali[i]);
+
 					}
 				}
 			}
-		}
-		while (sceltaVoce != 0);
+
+		} while (sceltaVoce != 0);
+		scanner.close();
 	}
-}
+   }
