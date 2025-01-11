@@ -22,8 +22,19 @@ public class Immagine extends ElementoMultimediale implements Luminosita {
 		}
 	}
 
+	public void show(){
+		System.out.println(titolo + " " + "*".repeat(luminosita));
+	}
+
 	@Override
 	public void esegui() {
+     show();
+	}
 
+	@Override
+	public String toString() {
+		return "Immagine{" +
+				  "luminosita=" + luminosita +
+				  '}';
 	}
 }

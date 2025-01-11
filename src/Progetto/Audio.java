@@ -12,6 +12,8 @@ public class Audio extends ElementoMultimediale implements Riproducibile, Volume
 	}
 
 
+
+
 	@Override
 	public void alzaVolume() {
 		volume++;
@@ -29,13 +31,30 @@ public class Audio extends ElementoMultimediale implements Riproducibile, Volume
 
 	@Override
 	public void play() {
-
-
+		for(int i=0; i<durata;i++){
+			System.out.println(titolo + "" + "!".repeat(volume));
+		}
 	}
 
 	@Override
 	public void esegui() {
 		play();
 
+	}
+
+	public int getVolume() {
+		return volume;
+	}
+
+	public  void setVolume(int nuovoV){
+		this.volume=nuovoV;
+	}
+
+	@Override
+	public String toString() {
+		return "Audio{" +
+				  "durata=" + durata +
+				  ", volume=" + volume +
+				  '}';
 	}
 }
